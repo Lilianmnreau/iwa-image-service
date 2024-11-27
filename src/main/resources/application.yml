@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: image-service
+
+  data:
+    mongodb:
+      host: db-mongodb
+      port: 27017
+      database: image_service_db
+      username: root
+      password: example
+
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: image-service-group
+
+security:
+  jwt:
+    secret: ${JWT_SECRET:default-secret}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-service:8761/eureka/
+  instance:
+    prefer-ip-address: true
