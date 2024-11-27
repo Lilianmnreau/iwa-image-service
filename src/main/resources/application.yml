@@ -2,10 +2,18 @@ spring:
   application:
     name: image-service
 
+  # Configuration MongoDB
   data:
     mongodb:
       uri: mongodb://root:example@db-mongodb:27017/image_service_db?authSource=admin
 
+  # Désactivation de la configuration automatique des bases de données SQL
+  datasource:
+    url: "" # Désactive la configuration de la DataSource SQL
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+  # Configuration Kafka
   kafka:
     bootstrap-servers: kafka:9092
     consumer:
