@@ -43,7 +43,7 @@ public class SecurityConfig {
                     .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             )
             .authorizeHttpRequests(authorizeRequests -> authorizeRequests
-                    // .requestMatchers("/auth/**").permitAll()  // Public endpoints
+                    .requestMatchers("/images/**").permitAll()  // Public endpoints
                     .anyRequest().authenticated()  // All other endpoints require authentication
             );
 
